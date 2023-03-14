@@ -14,7 +14,7 @@ jobs:
 
       - name: Actualizar archivo
         run: |
-          cd Imagenes
+          cd /Imagenes
           archivos=$(ls)
           echo "$archivos" > lista_de_archivos.txt
           git add lista_de_archivos.txt
