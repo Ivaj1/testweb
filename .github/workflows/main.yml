@@ -17,6 +17,9 @@ jobs:
       - name: Crear directorio
         run: |
           mkdir -p "$GITHUB_WORKSPACE/NuevasImagenes"
+      - name: Eliminar imágenes antiguas
+        run: |
+          rm -rf "$GITHUB_WORKSPACE/NuevasImagenes/*"
 
       - name: Copiar imágenes y renombrar
         run: |
