@@ -1,0 +1,24 @@
+name: Actualizar archivo con lista de archivos
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          ref: main # Checkout the main branch
+
+      - name: Actualizar archivo
+        run: |
+          cd testweb/Imagenes
+          archivos=$(ls)
+          echo "$archivos" > lista_de_archivos.txt
+          git add lista_de_archivos.txt
+          git commit -m "Actualizar lista de archivos"
+          git push
