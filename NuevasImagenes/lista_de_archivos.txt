@@ -1,0 +1,2 @@
+imagen001.png
+imagen002.txt
