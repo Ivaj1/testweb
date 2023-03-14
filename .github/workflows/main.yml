@@ -1,22 +1,16 @@
-name: Actualizar archivo con lista de archivos
-
+name: Actualizar archivo de texto con nombres de archivos
 on:
   push:
     branches: [ main ]
-
 jobs:
-  build:
+  actualizar-archivo:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Actualizar archivo
+      - name: Actualizar archivo de texto
         run: |
-          cd /Imagenes
-          archivos=$(ls)
-          echo "$archivos" > lista_de_archivos.txt
-          git add lista_de_archivos.txt
-          git commit -m "Actualizar lista de archivos"
-          git push
+          python script.py # Inserta aquí el comando o el script que lea los nombres de archivos en la carpeta deseada y los escriba en un archivo de texto
+          git config --global user.email "tu-email@ejemplo.com"
+          git config --global user.name "Tu nombre"
+          git add nombres_archivos.txt # Cambia el nombre del archivo si lo has llamado de
