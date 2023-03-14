@@ -1,2 +1,3 @@
 imagen001.png
 imagen002.txt
+lista_de_archivos.txt
