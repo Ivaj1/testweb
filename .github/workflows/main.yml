@@ -16,8 +16,8 @@ jobs:
 
       - name: Configurar Git
         run: |
-          git config --global user.email "test@gmail.com"
-          git config --global user.name "test"
+          git config --global user.email "silvialuban@gmail.com"
+          git config --global user.name "Ivaj"
 
       - name: Crear y actualizar directorio vertical
         run: |
