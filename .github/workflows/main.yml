@@ -22,7 +22,7 @@ jobs:
       - name: Crear y actualizar directorio vertical
         run: |
           mkdir -p "$GITHUB_WORKSPACE/vertical"
-          find "$GITHUB_WORKSPACE/vertical" -type f -exec rm -f {} \;
+          rm -rf "$GITHUB_WORKSPACE/vertical/*"
           cd "$GITHUB_WORKSPACE/verticalImagenes"
           i=1
           for img in $(ls); do
@@ -34,7 +34,7 @@ jobs:
       - name: Crear y actualizar directorio Horizontal
         run: |
           mkdir -p "$GITHUB_WORKSPACE/Horizontal"
-          find "$GITHUB_WORKSPACE/Horizontal" -type f -exec rm -f {} \;
+          rm -rf "$GITHUB_WORKSPACE/Horizontal/*"
           cd "$GITHUB_WORKSPACE/HorizontalImagenes"
           i=1
           for img in $(ls); do
