@@ -1,0 +1,44 @@
+name: Actualizar archivo con lista de archivos
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          ref: main # Checkout the main branch
+
+      - name: Crear directorio
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/Horizontal"
+      - name: Eliminar imágenes antiguas
+        run: |
+          rm -rf "$GITHUB_WORKSPACE/Horizontal/*"
+
+      - name: Copiar imágenes y renombrar
+        run: |
+          cd "$GITHUB_WORKSPACE/HorizontalImagenes"
+          i=1
+          for img in $(ls); do
+            ext=${img##*.}
+            cp "$img" "$GITHUB_WORKSPACE/Horizontal/imagen$(printf '%03d' $i).$ext"
+            i=$((i+1))
+          done
+
+      - name: Actualizar archivo
+        run: |
+          cd "$GITHUB_WORKSPACE/Horizontal"
+          archivos=$(ls)
+          echo "$archivos" > lista_de_archivos.txt
+          git config --global user.email "test@gmail.com"
+          git config --global user.name "test"
+          git add lista_de_archivos.txt
+          git add .
+          git commit -m "Actualizar lista de archivos y agregar nuevas imágenes"
+          git push
