@@ -35,7 +35,7 @@ jobs:
           echo "$archivos" > lista_de_archivos.txt
           git add lista_de_archivos.txt
           git add .
-          git commit -m "Actualizar lista de archivos y agregar nuevas imágenes en vertical"
+          git diff-index --quiet HEAD || git commit -m "Actualizar lista de archivos y agregar nuevas imágenes en vertical"
           git push
 
       - name: Crear y actualizar directorio Horizontal
@@ -54,5 +54,5 @@ jobs:
           echo "$archivos" > lista_de_archivos.txt
           git add lista_de_archivos.txt
           git add .
-          git commit -m "Actualizar lista de archivos y agregar nuevas imágenes en Horizontal"
+          git diff-index --quiet HEAD || git commit -m "Actualizar lista de archivos y agregar nuevas imágenes en Horizontal"
           git push
