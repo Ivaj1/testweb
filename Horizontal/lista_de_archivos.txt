@@ -1,1 +1,2 @@
 imagen001.png
+lista_de_archivos.txt
