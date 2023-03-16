@@ -1,2 +1,2 @@
-vertical: 15
-horizontal: 2
+vertical: 14
+horizontal: 1
