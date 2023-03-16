@@ -43,8 +43,11 @@ jobs:
             i=$((i+1))
           done
 
-      - name: Descartar cambios no confirmados
-        run: git restore --staged . && git restore .
+      - name: Confirmar y empujar cambios
+        run: |
+          git add -A
+          git diff-index --quiet HEAD || git commit -m "Eliminar archivos antiguos y agregar nuevos"
+          git push
 
       - name: Crear archivo con cantidad de archivos en cada directorio
         run: |
