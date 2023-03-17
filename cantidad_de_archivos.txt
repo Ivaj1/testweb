@@ -1,2 +1,2 @@
-vertical: 27
+vertical: 18
 horizontal: 13
